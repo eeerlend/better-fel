@@ -6,6 +6,7 @@ let settings = {
   settings: {
     hideModals: true,
     showFixtures: true,
+    convertDeadline: true,
     disableModalHorizontalScroll: true,
     transferHighlight: true
   },

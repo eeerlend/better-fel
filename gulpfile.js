@@ -1,3 +1,7 @@
+/*
+ * Always run task `scripts` before publishing extension
+ */
+
 'use strict'
 
 // Dependencies
@@ -27,17 +31,23 @@ gulp.task('sass', () => {
     .pipe(gulp.dest('assets/dist/firefox'))
 })
 
-// Scripts task
-gulp.task('scripts', () => {
+gulp.task('babel', ['webpack'], () => {
+  return gulp
+    .src('./assets/dist/chrome/scripts.min.js')
+    .pipe(babel({
+      compact: false,
+      presets: ['es2015']
+    }))
+    .pipe(gulp.dest('./assets/dist/chrome'))
+    .pipe(gulp.dest('./assets/dist/firefox'))
+})
+
+gulp.task('webpack', () => {
   return gulp
     .src('./assets/js/scripts.js')
     .pipe(plumber({errorHandler: onError}))
-    .pipe(babel({
-      presets: ['es2015']
-    }))
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest('assets/dist/chrome'))
-    .pipe(gulp.dest('assets/dist/firefox'))
 })
 
 // Pug task
@@ -53,10 +63,10 @@ gulp.task('pug', () => {
 
 // Watch task
 gulp.task('watch', () => {
-  gulp.watch('assets/js/**/*.js', {cwd: '.'}, ['scripts'])
+  gulp.watch('assets/js/**/*.js', {cwd: '.'}, ['webpack'])
   gulp.watch('assets/sass/**/*.sass', {cwd: '.'}, ['sass'])
   gulp.watch('assets/views/**/*.pug', {cwd: '.'}, ['pug'])
 })
 
 // Default task
-gulp.task('default', ['sass', 'scripts', 'pug', 'watch'])
+gulp.task('default', ['sass', 'webpack', 'pug', 'watch'])

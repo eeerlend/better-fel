@@ -14,6 +14,8 @@ const babel = require('gulp-babel')
 const pug = require('gulp-pug')
 const webpack = require('webpack-stream')
 const webpackConfig = require('./webpack.config.js')
+const uglify = require('gulp-uglify')
+const clean = require('gulp-clean-css')
 
 // Error handler
 function onError(err) {

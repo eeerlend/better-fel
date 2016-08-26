@@ -59,8 +59,7 @@ const elements = {
     return Promise.resolve(elements)
   },
   
-  getWatchlistPlayers()
-  {
+  getWatchlistPlayers: function() {
     return this.loadWatchList()
   }
 }

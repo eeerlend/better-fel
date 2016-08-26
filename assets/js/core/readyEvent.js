@@ -26,9 +26,13 @@ const fplReadyEvent = {
 
   cache: function() {
     this.overlay = $('.ism-loading--app.ismjs-loading')
+    this.inputs = $('.ism-form')
   },
 
-  bindLinks: function() {
+  bind: function() {
+    // Inputs that change the data presented
+    this.inputs.on('change', () => console.log('hallo'))
+
     // Links that point to a state in the app
     this.links = $('a').filter((i, link) => $(link).attr('href').indexOf('/a/') > -1)
     this.links.on('click', () => { this.emitted = false })
@@ -37,6 +41,10 @@ const fplReadyEvent = {
     // !! NOT WORKING !! AARGH!!!
     this.buttons = $('.ism-save-bar__button, .ismjs-confirm')
     this.buttons.on('click', () => { this.emitted = false; console.log(this.emitted) })
+  },
+
+  watchState: function() {
+    $(window).on('popstate', () => this.emitted = false)
   },
 
   // If no mutation is detected then emit the event after
@@ -65,9 +73,12 @@ const fplReadyEvent = {
     // so we need to specify to only get the first object
     this.observer()
     this.fallBack()
-    
-    $(document).on('fplReady', () => this.bindLinks())
+    this.watchState()
+
+    $(document).on('fplReady', () => this.bind())
   }
 }
 
 $(document).ready(() => fplReadyEvent.init())
+
+module.exports.emitted = fplReadyEvent.emitted

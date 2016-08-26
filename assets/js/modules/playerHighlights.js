@@ -27,7 +27,7 @@ const playerHighlights = {
       code = elem.find('[data-code]').attr('data-code')
 
     if (elem.hasClass("ism-element-list__in-squad")) {
-      elem.css('background-color', 'lightcoral')
+      elem.css('background-color', 'MediumSpringGreen')
       
       // Fix text color for child elements
       let appendTarget = elem.find('.ism-table--el__strong')

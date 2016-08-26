@@ -8,7 +8,8 @@ let settings = {
     showFixtures: true,
     convertDeadline: true,
     disableModalHorizontalScroll: true,
-    transferHighlight: true
+    transferHighlight: true,
+    expandLeagueStandings: true
   },
 
   sync: function(done) {

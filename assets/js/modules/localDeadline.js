@@ -26,7 +26,7 @@ const localDeadline = {
 
     let datetime = this.deadlineString + ' GMT+0100'
     let date = new Date(datetime)
-    let newDateString = dateformat(date, 'dd mmm hh:MM Z')
+    let newDateString = dateformat(date, 'dd mmm HH:MM Z')
 
     this.element.text(newDateString)
   },

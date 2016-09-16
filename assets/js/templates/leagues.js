@@ -39,7 +39,7 @@ let leagues = {
 
   alterRowTemplate: function() {
     let content = this.rowTemplate.text()
-    content = content.replace('<td>', '<td data-entry-id="<%- obj.entry %>"')
+    content = content.replace('<td>', '<td data-entry-id="<%- obj.entry %>">')
     
     this.rowTemplate.text(content)
   },

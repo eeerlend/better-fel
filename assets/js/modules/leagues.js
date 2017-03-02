@@ -106,10 +106,16 @@ let leagues = {
           }
 
           let points = picks
-            .map((p) => ({
-              multiplier: p.multiplier,
-              data: this.liveData.elements[p.element].explain[0][0]
-            }))
+            .map((p) => {
+              let explain = this.liveData.elements[p.element].explain
+              // Handle players with Blank Gameweeks
+              let explainPoints = explain.length > 0 && explain[0].length > 0 ? explain[0][0] : { }
+
+              return {
+                multiplier: p.multiplier,
+                data: explainPoints
+              }
+            })
             .map((p, i) => {
               if (i > 10 && notBenchBoost)
                 return 0

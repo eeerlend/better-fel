@@ -108,12 +108,10 @@ let leagues = {
           let points = picks
             .map((p) => {
               let explain = this.liveData.elements[p.element].explain
-              // Handle players with Blank Gameweeks
-              let explainPoints = explain.length > 0 && explain[0].length > 0 ? explain[0][0] : { }
 
               return {
                 multiplier: p.multiplier,
-                data: explainPoints
+                data: explain[0] !== undefined ? explain[0][0] : { }
               }
             })
             .map((p, i) => {

@@ -106,10 +106,14 @@ let leagues = {
           }
 
           let points = picks
-            .map((p) => ({
-              multiplier: p.multiplier,
-              data: this.liveData.elements[p.element].explain[0][0]
-            }))
+            .map((p) => {
+              let explain = this.liveData.elements[p.element].explain
+
+              return {
+                multiplier: p.multiplier,
+                data: explain[0] !== undefined ? explain[0][0] : { }
+              }
+            })
             .map((p, i) => {
               if (i > 10 && notBenchBoost)
                 return 0

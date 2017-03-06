@@ -107,11 +107,24 @@ let leagues = {
 
           let points = picks
             .map((p) => {
-              let explain = this.liveData.elements[p.element].explain
+              // accumPoints evaluates to [] for Blank Gameweeks
+              // and sums 'points' and 'value' for multi-gameweeks
+              let accumPoints = this.liveData.elements[p.element].explain
+                .reduce((a, b) => {
+                  for (var key in b[0]) {
+                    if (key in a) {
+                      a[key].points += b[0][key].points
+                      a[key].value += b[0][key].value
+                    } else {
+                      a[key] = b[0][key]
+                    }
+                  }
+                  return a
+                }, { })
 
               return {
                 multiplier: p.multiplier,
-                data: explain[0] !== undefined ? explain[0][0] : { }
+                data: accumPoints
               }
             })
             .map((p, i) => {

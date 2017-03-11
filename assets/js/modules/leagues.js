@@ -116,7 +116,11 @@ let leagues = {
                       a[key].points += b[0][key].points
                       a[key].value += b[0][key].value
                     } else {
-                      a[key] = b[0][key]
+                      a[key] = {
+                        name: b[0][key].name,
+                        points: b[0][key].points,
+                        value: b[0][key].value
+                      }
                     }
                   }
                   return a

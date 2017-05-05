@@ -39,7 +39,7 @@ const playerFixtures = {
     let fixturesContainer = $('<ul/>', {class: 'fixtures-container--field'})
 
     // Add the next five fixtures to the fixtures container
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 5 & player.fixtures[i] !== undefined; i++) {
       let fixture = player.fixtures[i]
       let fixtureElement = $('<li/>', {
         class: 'diff-' + fixture.difficulty,
@@ -65,7 +65,7 @@ const playerFixtures = {
     let appendTarget = elem.find('.ism-table--el__primary-text .ism-table--el__strong')
     let fixturesContainer = $('<ul/>', {class: 'fixtures-container'})
 
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 5 & player.fixtures[i] !== undefined; i++) {
       let fixture = player.fixtures[i]
       let fixtureElement = $('<li/>', {
         class: 'diff-' + fixture.difficulty,

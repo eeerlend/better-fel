@@ -24,18 +24,17 @@ const localDeadline = {
     if (settings.get('convertDeadline') === false)
       return
 
-    let datetime = this.deadlineString + ' GMT+0100'
-    let date = new Date(datetime)
-    let newDateString = dateformat(date, 'dd mmm HH:MM Z')
+    const datetime = new Date(this.element.attr('datetime'))
+    const localDatetime = dateformat(datetime, 'dd mmm HH:MM Z')
 
-    this.element.text(newDateString)
+    this.element.text(localDatetime)
   },
 
   // Reset to default
   reset: function() {
     if (settings.get('convertDeadline') === true)
       return
-
+    
     this.element.text(this.deadlineString)
   },
 

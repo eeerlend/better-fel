@@ -42,7 +42,7 @@ const playerFixtures = {
     for (var i = 0; i < 5 & player.fixtures[i] !== undefined; i++) {
       let fixture = player.fixtures[i]
       let fixtureElement = $('<li/>', {
-        class: 'diff-' + fixture.difficulty,
+        class: 'diff-' + (fixture.is_home ? '1' : '4'),
         title: fixture.opponent_name + (fixture.is_home ? ' (H)' : ' (A)')
       })
 

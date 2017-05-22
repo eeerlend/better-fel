@@ -1,4 +1,4 @@
-# Better FPL
+# Better FEL
 
 ### Getting started
 
@@ -6,8 +6,8 @@ Project requires [node](https://nodejs.org/en/) and [webpack](https://webpack.gi
 
 ##### Clone the repo
 ```sh
-git clone https://github.com/jeppe-smith/better-fpl.git
-cd better-fpl
+git clone https://github.com/eeerlend/better-fel.git
+cd better-fel
 npm install
 ```
 

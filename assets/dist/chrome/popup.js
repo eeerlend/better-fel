@@ -1,5 +1,5 @@
 /*
- * Adds #options to the current page if it's on fantasy.premierleague.com
+ * Adds #options to the current page if it's on fantasy.eliteserien.no
  * This opens the options page in the tab
  */
 
@@ -10,7 +10,7 @@ document.querySelector('#go-to-options').addEventListener('click', function() {
   }, (tabs) => {
     let tab = tabs[0]
 
-    if (!tab.url || tab.url.indexOf('fantasy.premierleague') < 0)
+    if (!tab.url || tab.url.indexOf('fantasy.eliteserien') < 0)
       return document.querySelector('.alert').className += ' show'
 
     if (tab.url.indexOf('#') > -1)

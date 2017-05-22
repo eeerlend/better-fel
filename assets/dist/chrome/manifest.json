@@ -1,16 +1,16 @@
 {
   "manifest_version": 2,
 
-  "name": "Better FPL",
-  "description": "Improvements to fantasy.premierleague.com",
+  "name": "Better FEL",
+  "description": "Improvements to fantasy.eliteserien.no",
   "version": "1.3.0",
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
   "permissions": [
-    "http://*.premierleague.com/",
-    "https://*.premierleague.com/",
+    "http://*.eliteserien.no/",
+    "https://*.eliteserien.no/",
     "storage"
   ],
   "web_accessible_resources": [
@@ -19,8 +19,8 @@
   "content_scripts": [
     {
       "matches": [
-        "http://*.fantasy.premierleague.com/*",
-        "https://*.fantasy.premierleague.com/*"
+        "http://*.fantasy.eliteserien.no/*",
+        "https://*.fantasy.eliteserien.no/*"
       ],
       "run_at": "document_end",
       "css": [

@@ -37,8 +37,11 @@ const elements = {
           let team = this.teams[i]
 
           if (done.indexOf(team) < 0) {
-            let id = this.elements.find((element) => element.team === team).id
-            promises.push(this.loadElementSummary(id, team))
+            let element = this.elements.find((element) => element.team === team)
+            if(typeof element !== "undefined" && element !== null) {
+              let id = element.id
+              promises.push(this.loadElementSummary(id, team))
+            }
           }
         }
 

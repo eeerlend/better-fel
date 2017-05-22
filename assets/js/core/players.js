@@ -5,12 +5,12 @@ const elements = {
   elements: [],
 
   loadElements: function() {
-    return Promise.resolve( $.ajax('https://fantasy.premierleague.com/drf/bootstrap-static') )
+    return Promise.resolve( $.ajax('https://fantasy.eliteserien.no/drf/bootstrap-static') )
   },
 
   loadElementSummary: function(id, team) {
     return Promise.resolve(
-      $.getJSON('https://fantasy.premierleague.com/drf/element-summary/' + id, (data) => {
+      $.getJSON('https://fantasy.eliteserien.no/drf/element-summary/' + id, (data) => {
         data.team = team
         return data
       })
@@ -18,7 +18,7 @@ const elements = {
   },
   
   loadWatchList: function() {
-    return Promise.resolve( $.ajax('https://fantasy.premierleague.com/drf/watchlist'))
+    return Promise.resolve( $.ajax('https://fantasy.eliteserien.no/drf/watchlist'))
   },
 
   get: function() {

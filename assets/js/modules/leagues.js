@@ -37,17 +37,17 @@ let leagues = {
   },
 
   getLive: function() {
-    return Promise.resolve( $.ajax('https://fantasy.premierleague.com/drf/event/' + this.event + '/live') )
+    return Promise.resolve( $.ajax('https://fantasy.eliteserien.no/drf/event/' + this.event + '/live') )
   },
 
   getEvent: function() {
-    return Promise.resolve( $.ajax('https://fantasy.premierleague.com/drf/bootstrap-dynamic') )
+    return Promise.resolve( $.ajax('https://fantasy.eliteserien.no/drf/bootstrap-dynamic') )
   },
 
   getEntry: function(id) {
     return Promise.all([
-      $.ajax('https://fantasy.premierleague.com/drf/entry/' + id),
-      $.ajax('https://fantasy.premierleague.com/drf/entry/' + id + '/event/' + this.event + '/picks'),
+      $.ajax('https://fantasy.eliteserien.no/drf/entry/' + id),
+      $.ajax('https://fantasy.eliteserien.no/drf/entry/' + id + '/event/' + this.event + '/picks'),
     ])
   },
 

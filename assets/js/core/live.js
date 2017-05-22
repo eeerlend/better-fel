@@ -7,11 +7,11 @@ let live = {
   },
 
   getLiveData: function() {
-    return Promise.resolve( $.ajax('https://fantasy.premierleague.com/drf/bootstrap-dynamic') )
+    return Promise.resolve( $.ajax('https://fantasy.eliteserien.no/drf/bootstrap-dynamic') )
       .then((data) => {
         let currentEvent = data['current-event']
 
-        return Promise.resolve( $.ajax('https://fantasy.premierleague.com/drf/event/' + currentEvent + '/live') )
+        return Promise.resolve( $.ajax('https://fantasy.eliteserien.no/drf/event/' + currentEvent + '/live') )
       })
       .catch((err) => { throw err })
   },
